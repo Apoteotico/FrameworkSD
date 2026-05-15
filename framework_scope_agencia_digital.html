@@ -1,0 +1,296 @@
+
+<h2 class="sr-only">Framework de definición de alcance y responsabilidades para servicios digitales</h2>
+<style>
+  .r{font-family:var(--font-sans);padding:1rem 0}
+  .tabs{display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap}
+  .tab{font-size:13px;padding:5px 14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);cursor:pointer;background:var(--color-background-primary);color:var(--color-text-secondary)}
+  .tab.on{background:var(--color-background-secondary);color:var(--color-text-primary);font-weight:500;border-color:var(--color-border-primary)}
+  .panel{display:none}.panel.on{display:block}
+  .st{font-size:12px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.06em;margin:1.25rem 0 .75rem;padding-bottom:6px;border-bottom:.5px solid var(--color-border-tertiary)}
+  .qrow{padding:10px 0;border-bottom:.5px solid var(--color-border-tertiary)}
+  .qrow:last-child{border-bottom:none}
+  .q{font-size:14px;color:var(--color-text-primary);line-height:1.5;margin-bottom:6px}
+  .interp{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+  .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;padding:2px 8px;border-radius:var(--border-radius-md);margin-right:6px;white-space:nowrap}
+  .b-ok{background:#EAF3DE;color:#3B6D11}
+  .b-warn{background:#FAEEDA;color:#854F0B}
+  .b-red{background:#FCEBEB;color:#A32D2D}
+  .b-blue{background:#E6F1FB;color:#185FA5}
+  .alert-row{display:flex;gap:10px;padding:10px 0;border-bottom:.5px solid var(--color-border-tertiary);align-items:flex-start}
+  .alert-row:last-child{border-bottom:none}
+  .alert-icon{flex-shrink:0;margin-top:2px}
+  .alert-txt{font-size:13px;line-height:1.5;color:var(--color-text-primary)}
+  .alert-sub{font-size:12px;color:var(--color-text-secondary);margin-top:3px}
+  .tier{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:12px 16px;margin-bottom:10px}
+  .tier-name{font-size:14px;font-weight:500;margin-bottom:8px;color:var(--color-text-primary)}
+  .tier-row{font-size:13px;color:var(--color-text-secondary);display:flex;gap:8px;margin-bottom:5px;line-height:1.4}
+  .tier-row i{flex-shrink:0;margin-top:2px}
+  .tier-yo{color:#185FA5}
+  .tier-ella{color:#3B6D11}
+  .tier-shared{color:#854F0B}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;font-size:11px;font-weight:500;color:var(--color-text-secondary);padding:6px 8px;border-bottom:.5px solid var(--color-border-tertiary)}
+  td{padding:8px;border-bottom:.5px solid var(--color-border-tertiary);color:var(--color-text-primary);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .tip{background:#E6F1FB;border-radius:var(--border-radius-md);padding:10px 14px;font-size:13px;color:#0C447C;margin-top:10px;line-height:1.5}
+  .legend{display:flex;gap:12px;margin-bottom:1rem;flex-wrap:wrap;font-size:12px;color:var(--color-text-secondary);align-items:center}
+</style>
+<div class="r">
+<div class="tabs">
+  <button class="tab on" onclick="st('preguntas')">preguntas + interpretación</button>
+  <button class="tab" onclick="st('alertas')">señales de alerta</button>
+  <button class="tab" onclick="st('tiers')">tiers de servicio</button>
+  <button class="tab" onclick="st('tiempo')">estimación de tiempo</button>
+  <button class="tab" onclick="st('contrato')">alcance → contrato</button>
+</div>
+
+<div id="p-preguntas" class="panel on">
+  <div class="st">bloque 1 — qué quiere delegar exactamente</div>
+
+  <div class="qrow">
+    <div class="q">"Cuando decís que querés que alguien maneje las redes, ¿qué parte te imaginás que dejarías de hacer vos completamente?"</div>
+    <div class="interp">
+      <span class="badge b-ok">si dice: pensar qué publicar</span> → necesita estrategia + planificación. Ella ejecuta. Servicio liviano para vos.<br>
+      <span class="badge b-warn">si dice: todo, que ni piense</span> → necesita gestión operativa completa. Hay que aclarar quién graba y diseña.<br>
+      <span class="badge b-red">si dice: que se publique solo</span> → expectativa mágica. Sin material suyo no hay contenido. Detectar ahora.
+    </div>
+  </div>
+
+  <div class="qrow">
+    <div class="q">"¿Qué parte de esto te drena más: pensar qué publicar, sentarte a hacerlo, o los dos por igual?"</div>
+    <div class="interp">
+      <span class="badge b-ok">pensar</span> → vos resolvés con un plan mensual. Horas bajas, valor alto.<br>
+      <span class="badge b-warn">hacerlo</span> → el problema es producción. Diseño y edición no son tu área — aclararlo.<br>
+      <span class="badge b-red">los dos</span> → sobrecarga total. Hay que redefinir qué es realista según presupuesto.
+    </div>
+  </div>
+
+  <div class="qrow">
+    <div class="q">"Si yo te entrego cada semana el guión, el texto y la idea visual lista, ¿podrías grabar y subir vos el contenido?"</div>
+    <div class="interp">
+      <span class="badge b-ok">sí</span> → modelo ideal. Vos estructurás, ella ejecuta. Sostenible y rentable.<br>
+      <span class="badge b-warn">sí pero no siempre</span> → hay que acordar frecuencia mínima realista. No 4 reels por semana.<br>
+      <span class="badge b-red">no, no tengo tiempo</span> → quién graba entonces. Si no hay respuesta, el servicio no puede existir.
+    </div>
+  </div>
+
+  <div class="qrow">
+    <div class="q">"Para los diseños de imagen — carruseles, portadas — ¿seguís trabajando con Maiki o esperás que eso también esté incluido en el servicio?"</div>
+    <div class="interp">
+      <span class="badge b-ok">Maiki lo sigue haciendo</span> → vos solo le pasás los briefs. Cero diseño de tu parte.<br>
+      <span class="badge b-warn">Maiki no está disponible siempre</span> → hay que definir quién cubre los huecos. Canva básico con plantillas puede ser opción.<br>
+      <span class="badge b-red">esperaba que lo hicieras vos</span> → fuera de scope. Aclararlo antes de cerrar precio.
+    </div>
+  </div>
+
+  <div class="st">bloque 2 — nivel de soporte e involucramiento</div>
+
+  <div class="qrow">
+    <div class="q">"¿Preferís que nos juntemos una vez por semana/mes para revisar todo, o esperás poder escribirme por WhatsApp cuando surge algo?"</div>
+    <div class="interp">
+      <span class="badge b-ok">reunión fija y después no molesto</span> → servicio acotado y predecible. Ideal.<br>
+      <span class="badge b-warn">reunión pero también algo de WhatsApp</span> → hay que definir tiempo de respuesta. No es soporte 24/7.<br>
+      <span class="badge b-red">por WhatsApp cuando lo necesito</span> → soporte on-demand invisible. Cobrar por separado o acotarlo duro.
+    </div>
+  </div>
+
+  <div class="qrow">
+    <div class="q">"¿Querés aprobar cada publicación antes de que salga, o preferís que yo publique directamente con una guía de tono?"</div>
+    <div class="interp">
+      <span class="badge b-ok">publicar directo con guía</span> → autonomía real. Ideal para agilidad y carga baja tuya.<br>
+      <span class="badge b-warn">quiero aprobar pero rápido, en el día</span> → viable si se define un SLA claro (ej: 24h para aprobar o se publica igual).<br>
+      <span class="badge b-red">quiero aprobar todo y a veces tardo</span> → cuello de botella del lado de ella. El calendario se rompe y la culpa cae en vos.
+    </div>
+  </div>
+
+  <div class="qrow">
+    <div class="q">"¿Tenés material ya producido — fotos, videos, audios — o habría que generar todo desde cero?"</div>
+    <div class="interp">
+      <span class="badge b-ok">tengo bastante material</span> → se puede arrancar. Menor dependencia de grabación nueva.<br>
+      <span class="badge b-warn">algo tengo pero no mucho</span> → hay que acordar un ritmo de producción mínimo mensual.<br>
+      <span class="badge b-red">no tengo nada</span> → sin material no hay contenido. Grabar es obligatorio antes de cualquier plan.
+    </div>
+  </div>
+
+  <div class="st">bloque 3 — expectativas de resultado y presupuesto</div>
+
+  <div class="qrow">
+    <div class="q">"¿Esperás ver resultados en el primer mes, o entendés que esto funciona de forma acumulativa en 3 a 6 meses?"</div>
+    <div class="interp">
+      <span class="badge b-ok">entiendo que es proceso</span> → cliente realista. Podés trabajar con objetivos de largo plazo.<br>
+      <span class="badge b-warn">algo en el primer mes estaría bueno</span> → hay que definir qué significa "algo": un lead, más visitas, más seguidores.<br>
+      <span class="badge b-red">si en 30 días no veo resultados, paro</span> → expectativa de magia. Riesgo de churn inmediato. Educarlo o no cerrarlo.
+    </div>
+  </div>
+
+  <div class="qrow">
+    <div class="q">"Sabiendo que tu ingreso varía mes a mes, ¿hay un monto fijo mensual que podrías sostener sin problema, o necesitás algo más flexible?"</div>
+    <div class="interp">
+      <span class="badge b-ok">tengo X fijo disponible</span> → podés diseñar el servicio en función de ese número.<br>
+      <span class="badge b-warn">depende del mes</span> → proponer modelo escalonado: base fija mínima + extras opcionales.<br>
+      <span class="badge b-red">no puedo comprometerme a nada fijo</span> → riesgo de no pago. Mejor modelo por proyecto o paquete prepago.
+    </div>
+  </div>
+</div>
+
+<div id="p-alertas" class="panel">
+  <div class="st">señales de alerta — detectar antes de cerrar</div>
+
+  <div class="alert-row">
+    <div class="alert-icon"><span class="badge b-red">dependencia</span></div>
+    <div class="alert-txt">
+      "Yo no tengo tiempo para nada, necesito que se haga todo."
+      <div class="alert-sub">Sin su contenido (fotos, videos, presencia) no existe el servicio. Si no puede grabar 2 reels por mes, nada funciona. Detectarlo antes de arrancar.</div>
+    </div>
+  </div>
+
+  <div class="alert-row">
+    <div class="alert-icon"><span class="badge b-red">WhatsApp 24/7</span></div>
+    <div class="alert-txt">
+      Espera respuesta rápida a cualquier hora para cualquier consulta.
+      <div class="alert-sub">Soporte ilimitado no está en ningún precio. Hay que acotarlo explícitamente: reunión fija + máximo X mensajes por semana, respuesta en 24h hábiles.</div>
+    </div>
+  </div>
+
+  <div class="alert-row">
+    <div class="alert-icon"><span class="badge b-red">aprobación lenta</span></div>
+    <div class="alert-txt">
+      "Apruebo todo pero a veces tardo unos días en responder."
+      <div class="alert-sub">El calendario se rompe y la responsabilidad cae en vos. Definir SLA: si no aprueba en 48h, se publica o se pospone la semana entera.</div>
+    </div>
+  </div>
+
+  <div class="alert-row">
+    <div class="alert-icon"><span class="badge b-warn">expectativa mágica</span></div>
+    <div class="alert-txt">
+      "En 30 días quiero ver más alumnos."
+      <div class="alert-sub">SEO orgánico e IG sin pauta tarda 3-6 meses en mostrar tracción sostenida. Si no entiende esto, hay que educarla o no cerrar.</div>
+    </div>
+  </div>
+
+  <div class="alert-row">
+    <div class="alert-icon"><span class="badge b-warn">scope creep silencioso</span></div>
+    <div class="alert-txt">
+      Pide "un diseño rápido", "un video cortito", "un mail para mandar" fuera del acuerdo.
+      <div class="alert-sub">Cada pedido extra parece pequeño. Sumados destruyen la rentabilidad. Todo fuera de scope se cotiza aparte o no se hace.</div>
+    </div>
+  </div>
+
+  <div class="alert-row">
+    <div class="alert-icon"><span class="badge b-warn">presupuesto variable</span></div>
+    <div class="alert-txt">
+      "Pago cuando pueda" o "depende de cómo me vaya."
+      <div class="alert-sub">Ingreso variable del cliente = riesgo de no pago. Modelo prepago o paquete fijo cerrado. Nunca crédito abierto.</div>
+    </div>
+  </div>
+
+  <div class="alert-row">
+    <div class="alert-icon"><span class="badge b-blue">señal positiva</span></div>
+    <div class="alert-txt">
+      "Yo grabo, vos me decís qué hacer y cuándo."
+      <div class="alert-sub">Cliente ideal. Ella produce, vos estructurás. Servicio sostenible, rentable, con autonomía real de ambos lados.</div>
+    </div>
+  </div>
+</div>
+
+<div id="p-tiers" class="panel">
+  <div class="legend">
+    <span class="badge b-blue">vos</span>
+    <span class="badge b-ok">ella</span>
+    <span class="badge b-warn">compartido</span>
+  </div>
+
+  <div class="tier">
+    <div class="tier-name">tier 1 — estrategia y estructura (mínimo)</div>
+    <div class="tier-row"><i class="ti ti-check tier-yo" aria-hidden="true"></i><span><span class="badge b-blue">vos</span> plan de contenido mensual, guiones, copies, calendario editorial, análisis SEO mensual</span></div>
+    <div class="tier-row"><i class="ti ti-check tier-ella" aria-hidden="true"></i><span><span class="badge b-ok">ella</span> graba, diseña con Maiki, publica, responde mensajes</span></div>
+    <div class="tier-row"><i class="ti ti-check tier-shared" aria-hidden="true"></i><span><span class="badge b-warn">compartido</span> reunión mensual de revisión, aprobación de plan</span></div>
+    <div class="tier-row"><i class="ti ti-clock" aria-hidden="true"></i><span>tiempo real tuyo: 3-5 hs/mes — precio sugerido: $40.000–$60.000/mes</span></div>
+  </div>
+
+  <div class="tier">
+    <div class="tier-name">tier 2 — estrategia + supervisión activa</div>
+    <div class="tier-row"><i class="ti ti-check tier-yo" aria-hidden="true"></i><span><span class="badge b-blue">vos</span> todo del tier 1 + brief para diseñador, revisión de publicaciones antes de subir, métricas mensuales, optimización web</span></div>
+    <div class="tier-row"><i class="ti ti-check tier-ella" aria-hidden="true"></i><span><span class="badge b-ok">ella</span> graba, aprueba en 48h, sube con indicaciones tuyas</span></div>
+    <div class="tier-row"><i class="ti ti-check tier-shared" aria-hidden="true"></i><span><span class="badge b-warn">compartido</span> reunión quincenal, decisiones de campaña</span></div>
+    <div class="tier-row"><i class="ti ti-clock" aria-hidden="true"></i><span>tiempo real tuyo: 8-12 hs/mes — precio sugerido: $80.000–$120.000/mes</span></div>
+  </div>
+
+  <div class="tier">
+    <div class="tier-name">tier 3 — gestión completa (no recomendado sin equipo)</div>
+    <div class="tier-row"><i class="ti ti-check tier-yo" aria-hidden="true"></i><span><span class="badge b-blue">vos</span> todo lo anterior + publicación directa, respuesta a mensajes, coordinación diseñador, reportes, automatizaciones</span></div>
+    <div class="tier-row"><i class="ti ti-check tier-ella" aria-hidden="true"></i><span><span class="badge b-ok">ella</span> graba cuando puede, aprueba posteos opcionales</span></div>
+    <div class="tier-row"><i class="ti ti-clock" aria-hidden="true"></i><span>tiempo real tuyo: 20-30 hs/mes — precio sugerido: $200.000+/mes o no hacerlo sin CM dedicado</span></div>
+  </div>
+
+  <div class="tip"><i class="ti ti-info-circle" aria-hidden="true"></i> Para Claudia hoy: tier 1 es lo que tiene sentido dado su presupuesto variable y su trabajo fijo. Si crece, escala a tier 2. El tier 3 requiere un CM, no solo vos.</div>
+</div>
+
+<div id="p-tiempo" class="panel">
+  <div class="st">desglose real de horas por tarea — tier 1</div>
+  <table>
+    <thead><tr><th>tarea</th><th>frecuencia</th><th>hs reales</th><th>quién</th></tr></thead>
+    <tbody>
+      <tr><td>plan de contenido mensual</td><td>1x/mes</td><td>1.5 hs</td><td><span class="badge b-blue">vos</span></td></tr>
+      <tr><td>guiones reels (4 por mes)</td><td>mensual</td><td>2 hs</td><td><span class="badge b-blue">vos</span></td></tr>
+      <tr><td>copies captions + hashtags</td><td>mensual</td><td>1 hs</td><td><span class="badge b-blue">vos</span></td></tr>
+      <tr><td>revisión métricas + informe breve</td><td>1x/mes</td><td>0.5 hs</td><td><span class="badge b-blue">vos</span></td></tr>
+      <tr><td>reunión con cliente</td><td>1x/mes</td><td>1 hs</td><td><span class="badge b-warn">compartido</span></td></tr>
+      <tr><td>ajustes post-reunión</td><td>1x/mes</td><td>0.5 hs</td><td><span class="badge b-blue">vos</span></td></tr>
+      <tr><td>grabación reels</td><td>4x/mes</td><td>—</td><td><span class="badge b-ok">ella</span></td></tr>
+      <tr><td>diseño imágenes</td><td>mensual</td><td>—</td><td><span class="badge b-ok">ella + Maiki</span></td></tr>
+      <tr><td>publicación y respuesta mensajes</td><td>diario</td><td>—</td><td><span class="badge b-ok">ella</span></td></tr>
+      <tr><td><strong>total real tuyo</strong></td><td></td><td><strong>~6 hs/mes</strong></td><td></td></tr>
+    </tbody>
+  </table>
+  <div class="tip"><i class="ti ti-calculator" aria-hidden="true"></i> 6 hs/mes a $10.000/h = $60.000. Si cobrás $50.000 fijo, estás bien. Si la reunión se extiende o hay revisiones extra, hay que cobrar por hora adicional o meterlo en el precio desde el inicio.</div>
+
+  <div class="st">costo invisible — lo que no se cobra pero consume tiempo</div>
+  <table>
+    <thead><tr><th>actividad invisible</th><th>riesgo</th><th>solución</th></tr></thead>
+    <tbody>
+      <tr><td>WhatsApp fuera de reunión</td><td>1-3 hs/mes sin cobrar</td><td>definir canal y horario de respuesta</td></tr>
+      <tr><td>cambios de último momento en copies</td><td>0.5-1 hs extra/mes</td><td>máx 1 ronda de revisiones incluida</td></tr>
+      <tr><td>esperar aprobación de ella</td><td>retrasos, estrés</td><td>SLA: 48h o se publica/pospone</td></tr>
+      <tr><td>pedidos fuera de scope</td><td>ilimitado</td><td>todo extra se cotiza antes de hacerse</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div id="p-contrato" class="panel">
+  <div class="st">cómo convertir respuestas en alcance concreto</div>
+  <table>
+    <thead><tr><th>respuesta de ella</th><th>se traduce en</th><th>qué incluir/excluir</th></tr></thead>
+    <tbody>
+      <tr><td>"quiero que pienses vos qué publicar"</td><td>plan editorial mensual</td><td>incluir: calendario + guiones. Excluir: publicación y diseño</td></tr>
+      <tr><td>"yo grabo si me decís cómo"</td><td>guiones + briefs de producción</td><td>incluir: estructura del reel, texto, timing. Excluir: edición de video</td></tr>
+      <tr><td>"Maiki hace el diseño"</td><td>briefs para Maiki</td><td>incluir: brief escrito con indicaciones de tono, texto, referencia visual. Excluir: Canva, Photoshop, edición</td></tr>
+      <tr><td>"quiero aprobar antes de publicar"</td><td>flujo de aprobación</td><td>incluir: envío con 72h de anticipación. SLA: 48h para aprobar. Sin respuesta = aprobado o pospuesto</td></tr>
+      <tr><td>"escribime por WhatsApp"</td><td>canal de soporte acotado</td><td>incluir: respuesta en 24-48h hábiles, lunes a viernes. Excluir: soporte nocturno, urgencias, consultas fuera de scope</td></tr>
+      <tr><td>"quiero ver resultados en 3 meses"</td><td>métricas acordadas</td><td>definir: qué se mide (leads, visitas, seguidores). No prometer alumnos nuevos — prometer sistema funcionando</td></tr>
+    </tbody>
+  </table>
+
+  <div class="st">cláusulas mínimas que tiene que tener el acuerdo</div>
+  <table>
+    <thead><tr><th>cláusula</th><th>redacción sugerida</th></tr></thead>
+    <tbody>
+      <tr><td>scope cerrado</td><td>"El servicio incluye X, Y, Z. Todo lo que no esté en esta lista se cotiza aparte."</td></tr>
+      <tr><td>dependencia de contenido</td><td>"El servicio depende de que la clienta provea material (video/audio) en los tiempos acordados. Retrasos de su parte no son responsabilidad del proveedor."</td></tr>
+      <tr><td>SLA de aprobación</td><td>"Si la clienta no aprueba el contenido dentro de 48h hábiles, se considera aprobado o se pospone a la semana siguiente."</td></tr>
+      <tr><td>soporte acotado</td><td>"El servicio incluye una reunión mensual de 60 minutos y consultas por escrito respondidas en 24-48h hábiles de lunes a viernes."</td></tr>
+      <tr><td>pago anticipado</td><td>"El servicio se abona los primeros 5 días hábiles de cada mes. Sin pago confirmado no se entrega el plan del mes."</td></tr>
+      <tr><td>duración mínima</td><td>"El contrato es por 3 meses mínimo. Los resultados orgánicos requieren consistencia; cancelaciones antes de ese plazo no reflejan el potencial del servicio."</td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<script>
+function st(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('p-'+id).classList.add('on');
+  event.target.classList.add('on');
+}
+</script>
